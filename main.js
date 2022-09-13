@@ -1,19 +1,19 @@
 
  var canvas = new fabric.Canvas("myCanvas") ;
- blockY=1;
- blockX=1;
+ var blockY=1;
+ var blockX=1;
 
-blockImageWidth = 350;
-blockImageHeight = 430;
+var blockImageWidth = 350;
+var blockImageHeight = 430;
 
 var blockImageObject= "";
 
-function newImage(getImage)
+function newImage(getImage, largura, altura)
 {
 	fabric.Image.fromURL(getImage, function(img){
 		blockImageObject = img;
-		blockImageObject.scaleToWidth(blockImageWidth);
-		blockImageObject.scaleToWidth(blockImageHeight);
+		blockImageObject.scaleToWidth(largura);
+		blockImageObject.scaleToHeight(altura);
 		blockImageObject.set({
 		top: blockY,
 		left:blockX
@@ -29,34 +29,36 @@ function myKeyDown(e)
 keyPressed = e.keyCode;
 console.log(keyPressed);
 
-	if(keyPressed == '82')
+	if(keyPressed == '69')
 	{
-		newImage('rr1.png');
+		blockX=400;
+		newImage('rr1.png', 300, 350);
 		console.log("red");
 	}
 	if(keyPressed == '86')
 	{
 		blockX = 200;
-		newImage('gr.png');
+		newImage('gr.png', 300, 350);
 		console.log("verde");
 	}
 	
 	if(keyPressed == '65')
 	{
-		blockX =350;
-		newImage('yr.png');
+		blockX =600;
+		newImage('yr.png', 300, 350);
 		console.log("amarelo");
 	}
 	if(keyPressed == '82')
 	{
-		blockX = 600;
-		newImage('pr.png');
+		blockX = 0;
+		newImage('pr.png', 250, 300);
 		console.log("rosa");
 	}
 	if(keyPressed == '73')
 	{
 		blockX = 700;
-		newImage('br.png');
+		blockY = 50;
+		newImage('br.png', 250, 300);
 		console.log("azul");
 	}
 	
